@@ -1,0 +1,29 @@
+{
+  "name": "teat-yolo-code-coffee-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/teat-yolo-code-coffee-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/teat-yolo-code-coffee-e2e/cypress.json",
+        "devServerTarget": "teat-yolo-code-coffee:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "teat-yolo-code-coffee:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/teat-yolo-code-coffee-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["teat-yolo-code-coffee"]
+}
